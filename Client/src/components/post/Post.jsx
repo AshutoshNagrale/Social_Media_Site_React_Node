@@ -22,19 +22,43 @@ export default function Post({ post, safe }) {
   const [imageUrl, setImageUrl] = useState("");
   const moreOptionMenu = ["Edit", "Delete"];
   const [showOption, setShowOption] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
   const menuRef = useRef();
   const optionRef = useRef();
+  const useS3Images = false;
 
   //Event Listener to Open and Close More Option
   window.addEventListener("click", (event) => {
     if (event.target !== menuRef.current) {
       setShowOption(false);
+      showDelete(false);
     }
   });
 
+  //detelte post
+  const finalDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:4400/api/post/${post._id}`, {
+        userId: currentUser._id,
+      });
+      console.log("Post Deleted");
+    } catch (error) {
+      console.log(error);
+    }
+    window.location.reload();
+  };
+
   // handle More option menu
   const handleMoreOptionClicked = (option) => {
-    console.log(option + "clicked");
+    switch (option) {
+      case "Delete":
+        console.log("Delete Clicked");
+        setShowDelete(true);
+        break;
+      case "Edit":
+        console.log("Edit Clicked");
+        break;
+    }
   };
 
   //Get Random Image From Internet
@@ -109,6 +133,19 @@ export default function Post({ post, safe }) {
 
   return (
     <div className="post">
+      {showDelete && (
+        <div className="finalDeleteOption">
+          <div className="finalDeleteText">
+            Are You sure? You Want to delete this Post
+          </div>
+          <button className="deleteButton" onClick={() => finalDelete()}>
+            Delete
+          </button>
+          <button className="deleteButton" onClick={() => setShowDelete(false)}>
+            Cancel
+          </button>
+        </div>
+      )}
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
@@ -142,8 +179,8 @@ export default function Post({ post, safe }) {
                 <div
                   key={option}
                   onClick={() => {
-                    setShowOption(false);
                     handleMoreOptionClicked(option);
+                    setShowOption(false);
                   }}
                 >
                   <div ref={optionRef} className="moreOptionText">
@@ -156,7 +193,11 @@ export default function Post({ post, safe }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img src={getRandomImages()} alt={""} className="postCenterImage" />
+          <img
+            src={useS3Images ? imageUrl : getRandomImages()}
+            alt={""}
+            className="postCenterImage"
+          />
           {/* usee imageUrl to use images form s3 
             or use (dummyPhotos[Math.floor(Math.random() * dummyPhotos.length)] to use dummyIMages 
             or use "https://loremflickr.com/320/240" to get random images*/}
