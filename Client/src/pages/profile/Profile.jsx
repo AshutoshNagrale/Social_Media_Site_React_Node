@@ -6,6 +6,8 @@ import Topbar from "../../components/topbar/topbar";
 import axios from "axios";
 import "./profile.css";
 import { useParams } from "react-router";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
 
 export default function Profile() {
   const publicFolder = import.meta.env.VITE_PUBLIC_FOLDER;
@@ -42,6 +44,9 @@ export default function Profile() {
                 alt={user.profilePicture || profileNoUserImage}
                 className="profileUserImage"
               />
+              <div className="profileMoreOption">
+                <MoreHorizIcon fontSize="medium"/>
+              </div>
             </div>
             <div className="profileInfo">
               <h4 className="profileInfoName">{user.username}</h4>

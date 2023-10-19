@@ -17,6 +17,7 @@ export default function Rightbar({ user }) {
   const [profileUser, setProfileUser] = useState({});
   const [followed, setFollowed] = useState(false);
 
+  //get Logged user Data
   useEffect(() => {
     const getUserData = async () => {
       if (currentUser._id !== user?._id) {
@@ -47,20 +48,26 @@ export default function Rightbar({ user }) {
     getFriends();
   }, [user]);
 
+  //handle Edit Button
+  const handleEditDetails = () => {
+    console.log("Edit Clicked");
+  };
+
+  // handle Follow Button
   const followHandler = async () => {
     try {
       if (followed) {
-        await axios.put(`http://localhost:4400/api/user/${user?._id}/unfollow`, {
-          userId: currentUser._id,
-        });
-        dispatch({ type: "UNFOLLOW", payload: user._id });
-      } else {
         await axios.put(
-          `http://localhost:4400/api/user/${user?._id}/follow`,
+          `http://localhost:4400/api/user/${user?._id}/unfollow`,
           {
             userId: currentUser._id,
           }
         );
+        dispatch({ type: "UNFOLLOW", payload: user._id });
+      } else {
+        await axios.put(`http://localhost:4400/api/user/${user?._id}/follow`, {
+          userId: currentUser._id,
+        });
         dispatch({ type: "FOLLOW", payload: user._id });
       }
       setFollowed(!followed);
@@ -99,7 +106,16 @@ export default function Rightbar({ user }) {
             {followed ? <RemoveIcon /> : <AddIcon />}
           </button>
         )}
-        <h4 className="rightbarTitle">User Info</h4>
+        <div className="rightbarTitleBox">
+          <h4 className="rightbarTitle">User Info</h4>
+          <button
+            className="rightbarEditButton"
+            onClick={() => handleEditDetails()}
+          >
+            Edit Details
+          </button>
+        </div>
+        <hr className="rightbarUserDetailsHr" />
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
             <span className="rightbarInfoKey">City : </span>

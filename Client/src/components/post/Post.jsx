@@ -1,6 +1,5 @@
 import "./post.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
@@ -31,7 +30,6 @@ export default function Post({ post, safe }) {
   window.addEventListener("click", (event) => {
     if (event.target !== menuRef.current) {
       setShowOption(false);
-      showDelete(false);
     }
   });
 
