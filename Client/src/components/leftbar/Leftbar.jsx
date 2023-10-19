@@ -9,9 +9,36 @@ import WorkIcon from "@mui/icons-material/Work";
 import EventIcon from "@mui/icons-material/Event";
 import SchoolIcon from "@mui/icons-material/School";
 import CloseFriend from "../closeFriend/CloseFriend";
-import { Users } from "../../dummydata";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import axios from "axios";
 
 export default function Leftbar() {
+  const { user: currentUser } = useContext(AuthContext);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const getAllUsers = async () => {
+      try {
+        const allUsers = await axios.get(
+          "http://localhost:4400/api/user/usersList"
+        );
+
+        const filteredUsers = allUsers.data.filter((u) => {
+          return currentUser.followings.indexOf(u?._id) == -1;
+        });
+        //remove ourself from all users list
+        const newfilteredUsers = filteredUsers.filter((item) => {
+          return item.username !== currentUser.username;
+        });
+
+        setUsers(newfilteredUsers);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllUsers();
+  }, [currentUser]);
   return (
     <div className="leftbar">
       <div className="leftbarWrapper">
@@ -55,9 +82,10 @@ export default function Leftbar() {
         </ul>
         <button className="leftbarButton">Show More</button>
         <hr className="leftbarHr" />
+        <div className="allUserList">Find Friends</div>
         <ul className="leftbarFriendList">
-          {Users.map((u) => (
-            <CloseFriend key={u.id} user={u} />
+          {users.map((u) => (
+            <CloseFriend key={u._id} user={u} />
           ))}
         </ul>
       </div>

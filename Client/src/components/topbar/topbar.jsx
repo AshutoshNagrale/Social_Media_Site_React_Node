@@ -6,15 +6,27 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./topbar.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Topbar() {
   const publicFolder = import.meta.env.VITE_PUBLIC_FOLDER;
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    localStorage.clear();
+    navigate("/register");
+    window.location.reload();
+  };
+
+  const handleTimeline = async () => {
+    navigate("/");
+  };
 
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to={user ? "/" : ""} style={{ textDecoration: "none" }}>
           <span className="logo">SocialMediaSite</span>
         </Link>
       </div>
@@ -27,7 +39,12 @@ export default function Topbar() {
       <div className="topbarRight">
         <div className="topbarLinks">
           <span className="topbarLink">HomePage</span>
-          <span className="topbarLink">TimeLine</span>
+          <span className="topbarLink" onClick={handleTimeline}>
+            TimeLine
+          </span>
+          <span className="topbarLink" onClick={logoutHandler}>
+            LOGOUT
+          </span>
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItems">

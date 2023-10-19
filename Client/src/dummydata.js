@@ -251,3 +251,31 @@ export const bPosts = [
     comment: 12,
   },
 ];
+
+
+export const dummyPhotos = [
+  "https://cdn.femjoyhunter.com/content/200830/0001-12_2400.jpg",
+  "https://cdn.femjoyhunter.com/content/180759/no-one-is-better-in-sensual-posing-than-this-too-hot-young-girl-17.jpg",
+  "https://cdn.femjoyhunter.com/content/190147/amazing-young-brunette-mariposa-already-naked-so-she-can-easily-show-us-her-big-boobs-13.jpg",
+  "https://cdn.femjoyhunter.com/content/190464/big-titted-brunette-strips-off-her-bikini-giving-us-perfect-view-on-her-heartstopping-body-15.jpg",
+  "https://image6.cdn2.seaart.ai/2023-05-27/28166233423941/b05fcac8a52d3a77e2654b725a5833ac8ef49ee4.png",
+  "https://image6.cdn2.seaart.ai/2023-07-21/47300937834565/b0b63b7bc88cba723ef00b5c5bad71948eaf9fbd.png",
+  "https://image3.cdn2.seaart.ai/2023-09-03/16129237630081029/f2174b5ffea710b9a8732d625b1b9aca707ac132.png",
+  "https://image3.cdn2.seaart.ai/2023-08-22/15014009289888773/23d39a7253b07f9ea145632a3107799d3fb3b2d6.png",
+  "https://image3.cdn2.seaart.ai/2023-06-04/30880887058501/d12f5652e62d1f745865ad8a7689412e4a712f18.png",
+  "https://image4.cdn2.seaart.ai/2023-08-31/15885510588296197/be73fa2015d63aa9fa5efdf092b16fe79d88cf94.png",
+  "https://image9.cdn2.seaart.ai/2023-07-20/47103041192005/2eef0e0e5ff15658ead1ea162b10372f5510ce3d.png",
+  "https://image4.cdn2.seaart.ai/2023-10-07/19231471808029701/e29b6f47d2e2f97c6482cf290e0fc851f2ffdc1b.png",
+  "https://image8.cdn2.seaart.ai/2023-08-24/15213069575675909/d71184d08d55d87076483580d5235002d96f061b.png",
+  "https://image5.cdn2.seaart.ai/2023-06-10/33014481858629/7c1eb7350d1cc73b1678b7f8d3eca00c2f24376d.png",
+  "https://image4.cdn2.seaart.ai/2023-08-30/15740326881841157/407e7b9be63bae6aff366c4c602e52d0de336b30.png",
+  "https://image6.cdn2.seaart.ai/2023-08-29/15663406225863685/0d0005bf72103acc70cebcec3e7b3bb810a23223_low.webp",
+  "https://image5.cdn2.seaart.ai/2023-09-08/16609311625110533/ad3afaa2ebeedc04330b73f182f069d950955cd6.png",
+  "https://image8.cdn2.seaart.ai/2023-06-17/35329711321157/dc42828c71781963adf64dccc528360c3ef32644.png",
+  "https://image5.cdn2.seaart.ai/2023-08-06/53145367527493/8580748778273b4eec517c77663bfceeecd30b2a.png",
+  "https://image4.cdn2.seaart.ai/2023-07-28/49993748361285/e5e2bf42b797669fbff5e5f39c2e200795a5be65.png",
+  "https://image2.cdn2.seaart.ai/2023-06-07/31754769035333/6c34305b82b38e884a8ed1877dedbf3e6601b58d.png",
+  "https://image10.cdn2.seaart.ai/2023-09-21/17797487048812549/a5b81b7790d5d225736640e0f80a8cc835e9a910.png",
+  "https://image6.cdn2.seaart.ai/2023-07-20/47028242640965/4ffc62e743d62094edfd46d8b56ce378e341c15c.png",
+  "https://image2.cdn2.seaart.ai/2023-06-17/35301031739461/b75925d810f7f2dbf5b6ba885cf9347295203c1b.png",
+];

@@ -76,9 +76,9 @@
 }
 
 .loginRegister {
-    align-self: center;
+  align-self: center;
   height: 50px;
-  width: 60%;
+  width: 100%;
   border-radius: 10px;
   border: none;
   background-color: var(--fbgreen);

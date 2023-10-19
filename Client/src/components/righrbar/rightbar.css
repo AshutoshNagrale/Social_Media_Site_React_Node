@@ -1,15 +1,13 @@
 .righbar {
   flex: 3.5;
-  background-color: white;
+}
+.rightbarWrapper {
+  padding: 20px 20px 0 0;
 }
 
 .birthdayContainer {
   display: flex;
   align-items: center;
-}
-
-.rightbarWrapper {
-  padding: 20px 20px 0 0;
 }
 
 .birthdayImg {
@@ -61,25 +59,40 @@
 }
 
 .rightbarFollowings {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  justify-content: space-around;
+}
+
+.share {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .rightbarFollowing {
   display: flex;
+  gap: 2px;
   flex-direction: column;
   margin-bottom: 20px;
   cursor: pointer;
   text-decoration: none;
   color: black;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 1px 3px 0.25px rgba(112, 112, 112, 0.68);
+  -moz-box-shadow: 1px 1px 3px 0.25px rgba(112, 112, 112, 0.68);
+  box-shadow: 1px 1px 3px 0.25px rgba(112, 112, 112, 0.68);
+}
+.rightbarFollowingName {
+  padding: 0px 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rightbarFollowingImg {
   width: 100px;
   height: 100px;
-  border-radius: 5px;
   object-fit: cover;
+  border-radius: 3px;
 }
 
 .rightBarFollowingButton {
@@ -92,7 +105,11 @@
   padding: 5px 10px;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
+}
+
+.rightbarFollowButton:focus {
+  outline: none;
 }

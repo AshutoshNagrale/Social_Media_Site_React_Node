@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./register.css";
 
 export default function Register() {
@@ -9,6 +9,10 @@ export default function Register() {
   const password = useRef();
   const passwordAgain = useRef();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,7 +58,7 @@ export default function Register() {
             />
             <input
               required
-              type="password"
+              type="text"
               ref={password}
               placeholder="Password"
               className="loginInput"
@@ -62,7 +66,7 @@ export default function Register() {
             />
             <input
               required
-              type="password"
+              type="text"
               ref={passwordAgain}
               placeholder="Password Again"
               className="loginInput"
@@ -71,7 +75,9 @@ export default function Register() {
             <button className="loginButton" type="submit">
               Sign Up
             </button>
-            <button className="loginRegister">Log into your Account</button>
+            <Link to="/login">
+              <button className="loginRegister">Log into your Account</button>
+            </Link>
           </form>
         </div>
       </div>

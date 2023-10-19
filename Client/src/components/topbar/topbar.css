@@ -56,22 +56,22 @@
 }
 
 .topbarLink {
-  margin-left: 10px;
+  margin: 10px 10px;
   font-size: 17px;
   cursor: pointer;
 }
-.topbarLinksafe {
-  margin-left: 10px;
-  font-size: 17px;
-  color: rgb(0, 145, 255);
+.topbarLink:hover {
+  font-weight: 700;
 }
 
 .topbarIcons {
   display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .topbarIconItems {
-  margin-right: 10px;
+  margin-right: 8px;
   cursor: pointer;
   position: relative;
 }
