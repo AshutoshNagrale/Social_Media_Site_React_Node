@@ -8,6 +8,8 @@ const cors = require("cors");
 const userRouter = require("./Routes/users");
 const authRouter = require("./Routes/auth");
 const postRouter = require("./Routes/post");
+const conversationRouter = require("./Routes/conversation");
+const messageRouter = require("./Routes/message");
 const multer = require("multer");
 const path = require("path");
 
@@ -67,6 +69,8 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
+app.use("/api/conversation", conversationRouter);
+app.use("/api/message", messageRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(

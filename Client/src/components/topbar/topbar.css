@@ -60,9 +60,6 @@
   font-size: 17px;
   cursor: pointer;
 }
-.topbarLink:hover {
-  font-weight: 700;
-}
 
 .topbarIcons {
   display: flex;

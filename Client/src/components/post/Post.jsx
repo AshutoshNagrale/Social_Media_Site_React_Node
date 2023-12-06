@@ -24,7 +24,7 @@ export default function Post({ post, safe }) {
   const [showDelete, setShowDelete] = useState(false);
   const menuRef = useRef();
   const optionRef = useRef();
-  const useS3Images = false;
+  const useS3Images = true;
 
   //Event Listener to Open and Close More Option
   window.addEventListener("click", (event) => {
@@ -74,7 +74,7 @@ export default function Post({ post, safe }) {
   useEffect(() => {
     const getImageFromS3 = async () => {
       if (!post.image) {
-        return;
+        return null;
       }
       if (post?.image?.includes("https:")) {
         setImageUrl(post.image);
@@ -165,12 +165,14 @@ export default function Post({ post, safe }) {
             <span className="postUserName">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
           </div>
-          <div className="postTopRight">
-            <MoreVertIcon
-              ref={menuRef}
-              onClick={() => setShowOption(!showOption)}
-            />
-          </div>
+          {user.username === currentUser.username && (
+            <div className="postTopRight">
+              <MoreVertIcon
+                ref={menuRef}
+                onClick={() => setShowOption(!showOption)}
+              />
+            </div>
+          )}
           {showOption && (
             <div className="moreOptionBox">
               {moreOptionMenu.map((option) => (
@@ -191,14 +193,13 @@ export default function Post({ post, safe }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img
-            src={useS3Images ? imageUrl : getRandomImages()}
-            alt={""}
-            className="postCenterImage"
-          />
-          {/* usee imageUrl to use images form s3 
-            or use (dummyPhotos[Math.floor(Math.random() * dummyPhotos.length)] to use dummyIMages 
-            or use "https://loremflickr.com/320/240" to get random images*/}
+          {post.image && (
+            <img
+              src={useS3Images ? imageUrl : getRandomImages()}
+              alt={""}
+              className="postCenterImage"
+            />
+          )}
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

@@ -108,12 +108,14 @@ export default function Rightbar({ user }) {
         )}
         <div className="rightbarTitleBox">
           <h4 className="rightbarTitle">User Info</h4>
-          <button
-            className="rightbarEditButton"
-            onClick={() => handleEditDetails()}
-          >
-            Edit Details
-          </button>
+          {user.username === currentUser.username && (
+            <button
+              className="rightbarEditButton"
+              onClick={() => handleEditDetails()}
+            >
+              Edit Details
+            </button>
+          )}
         </div>
         <hr className="rightbarUserDetailsHr" />
         <div className="rightbarInfo">
@@ -140,7 +142,7 @@ export default function Rightbar({ user }) {
         <div className="rightbarFollowings">
           {friends.map((friend) => (
             <Link
-              key={friend.username}
+              key={friend._id}
               to={"/profile/" + friend.username}
               style={{ textDecoration: "none" }}
             >

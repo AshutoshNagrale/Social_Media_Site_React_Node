@@ -1,3 +1,4 @@
+import "./topbar.css";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatIcon from "@mui/icons-material/Chat";
@@ -5,7 +6,6 @@ import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsAc
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import "./topbar.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Topbar() {
@@ -52,7 +52,12 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
           <div className="topbarIconItems">
-            <ChatIcon />
+            <Link
+              to={user ? "/messenger" : "register"}
+              style={{ textDecoration: "none",color:"white" }}
+            >
+              <ChatIcon />
+            </Link>
             <span className="topbarIconBadge">2</span>
           </div>
           <div className="topbarIconItems">
